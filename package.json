@@ -1,17 +1,16 @@
 {
   "version": "0.0.0",
   "name": "solid-jotai",
-  "description": "{{desc_of_lib}}",
+  "description": "Bite me",
   "license": "MIT",
-  "author": "{{me}}",
-  "contributors": [],
+  "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{me}}/solid-jotai.git"
+    "url": "git+https://github.com/wobsoriano/solid-jotai.git"
   },
-  "homepage": "https://github.com/{{me}}/solid-jotai#readme",
+  "homepage": "https://github.com/wobsoriano/solid-jotai#readme",
   "bugs": {
-    "url": "https://github.com/{{me}}/solid-jotai/issues"
+    "url": "https://github.com/wobsoriano/solid-jotai/issues"
   },
   "private": false,
   "sideEffects": false,
@@ -41,7 +40,8 @@
     "prepublishOnly": "pnpm build",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
     "update-deps": "taze -w && pnpm i",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && pnpm publish"
   },
   "peerDependencies": {
     "solid-js": ">=1.5.0",
@@ -51,11 +51,11 @@
     "bumpp": "^8.2.1",
     "jotai": "^1.11.1",
     "prettier": "2.7.1",
-    "rollup": "^2.77.2",
+    "rollup": "^2.79.1",
     "rollup-preset-solid": "^1.4.0",
     "solid-js": "^1.6.2",
     "taze": "^0.7.6",
-    "typescript": "^4.7.4",
+    "typescript": "^4.9.3",
     "vite": "^3.2.5",
     "vite-plugin-solid": "^2.4.0"
   },
