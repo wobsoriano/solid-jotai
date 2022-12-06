@@ -1,17 +1,17 @@
 {
   "version": "0.0.0",
-  "name": "{{name_of_lib}}",
+  "name": "solid-jotai",
   "description": "{{desc_of_lib}}",
   "license": "MIT",
   "author": "{{me}}",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{me}}/{{name_of_lib}}.git"
+    "url": "git+https://github.com/{{me}}/solid-jotai.git"
   },
-  "homepage": "https://github.com/{{me}}/{{name_of_lib}}#readme",
+  "homepage": "https://github.com/{{me}}/solid-jotai#readme",
   "bugs": {
-    "url": "https://github.com/{{me}}/{{name_of_lib}}/issues"
+    "url": "https://github.com/{{me}}/solid-jotai/issues"
   },
   "private": false,
   "sideEffects": false,
@@ -43,19 +43,21 @@
     "update-deps": "taze -w && pnpm i",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "solid-js": ">=1.0.0"
+    "solid-js": ">=1.5.0",
+    "jotai": ">=1.11.1"
   },
   "devDependencies": {
+    "bumpp": "^8.2.1",
+    "jotai": "^1.11.1",
     "prettier": "2.7.1",
     "rollup": "^2.77.2",
     "rollup-preset-solid": "^1.4.0",
-    "typescript": "^4.7.4",
-    "solid-js": "^1.4.8",
+    "solid-js": "^1.6.2",
     "taze": "^0.7.6",
-    "vite": "^3.0.4",
-    "vite-plugin-solid": "^2.3.0"
+    "typescript": "^4.7.4",
+    "vite": "^3.2.5",
+    "vite-plugin-solid": "^2.4.0"
   },
   "keywords": [
     "solid"
