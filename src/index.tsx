@@ -1,17 +1,22 @@
-import { Accessor, Component, createComputed, createSignal } from "solid-js";
+import { atom } from 'jotai/vanilla'
 
-export function createHello(): [Accessor<string>, (to: string) => void] {
-  const [hello, setHello] = createSignal("Hello World!");
+export {
+  useAtomValue,
+} from './useAtomValue'
 
-  return [hello, (to: string) => setHello(`Hello ${to}!`)];
+export {
+  useStore,
+  Provider,
+} from './Provider'
+
+export {
+  useSetAtom,
+} from './useSetAtom'
+
+export {
+  useAtom,
+} from './useAtom'
+
+export {
+  atom,
 }
-
-export const Hello: Component<{ to?: string }> = (props) => {
-  const [hello, setHello] = createHello();
-
-  createComputed(() => {
-    if (typeof props.to === "string") setHello(props.to);
-  });
-
-  return <div>{hello()}</div>;
-};

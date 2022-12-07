@@ -1,30 +1,44 @@
-import type { Component } from "solid-js";
-import logo from "./logo.svg";
-import styles from "./App.module.css";
-import { Hello } from "../src";
+import type { Component } from 'solid-js'
+import { Suspense } from 'solid-js'
+import { atom } from 'jotai/vanilla'
+import { useAtom } from '../src'
+
+const urlAtom = atom('https://jsonplaceholder.typicode.com/todos/1')
+const fetchUrlAtom = atom(
+  async (get) => {
+    const response = await fetch(get(urlAtom))
+    return await response.json()
+  },
+)
+
+const randomNumberAtom = atom(0)
+const fetchRandomNumberAtom = atom(
+  get => get(randomNumberAtom),
+  async (_get, set, url: string) => {
+    const response = await fetch(url)
+    set(randomNumberAtom, (await response.json())[0])
+  },
+)
+
+const Fetcher: Component = () => {
+  const [value, compute] = useAtom(fetchRandomNumberAtom)
+  // const [value] = useAtomAsync(fetchUrlAtom)
+  return (
+    <div>
+      {value()}
+      <button onClick={() => compute('https://www.randomnumberapi.com/api/v1.0/random')}>compute</button>
+    </div>
+  )
+}
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <h1>
-          <Hello></Hello>
-        </h1>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Fetcher />
+      </Suspense>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
