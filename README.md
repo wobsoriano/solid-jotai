@@ -52,9 +52,7 @@ const doubledCountAtom = atom(get => get(countAtom) * 2)
 
 ## Suspense
 
-[`<Suspense />`](https://www.solidjs.com/docs/latest/api#suspense) can be used when using async read/write functions:
-
-Derived async atoms
+You can make the read function an async function and use [`<Suspense />`](https://www.solidjs.com/docs/latest/api#suspense):
 
 ```tsx
 const urlAtom = atom('https://jsonplaceholder.typicode.com/todos')
@@ -74,37 +72,6 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <TodoList />
-    </Suspense>
-  )
-}
-```
-
-Async actions
-
-```tsx
-const countAtom = atom(0)
-const fetchCountAtom = atom(
-  get => get(countAtom),
-  async (_get, set, url) => {
-    const response = await fetch(url)
-    set(countAtom, (await response.json()).count)
-  }
-)
-
-const Count = () => {
-  const [json, compute] = useAtom(fetchCountAtom)
-  return (
-    <div>
-      {JSON.stringify(json())}
-      <button onClick={() => compute('http://count.host.com')}>compute</button>
-    </div>
-  )
-}
-
-function App() {
-  return (
-    <Suspense fallback={<Loading />}>
-      <Count />
     </Suspense>
   )
 }
