@@ -65,6 +65,8 @@ const fetchUrlAtom = atom(
 
 function TodoList() {
   const [json] = useAtom(fetchUrlAtom)
+  // json is a resource so loading, status
+  // and error props are available
   return <div>{JSON.stringify(json())}</div>
 }
 
