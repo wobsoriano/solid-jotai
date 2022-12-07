@@ -17,9 +17,13 @@ export const useStore = (options?: Options) => {
 }
 
 export const Provider: Component<Options> = (props) => {
-  const storeRef = props.store || createStore()
+  let storeRef
+
+  if (!props.store && !storeRef)
+    storeRef = createStore()
+
   return (
-    <StoreContext.Provider value={storeRef}>
+    <StoreContext.Provider value={props.store || storeRef}>
       {props.children}
     </StoreContext.Provider>
   )
