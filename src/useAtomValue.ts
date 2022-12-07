@@ -32,7 +32,7 @@ export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
     const [atomValue] = createResource(count, () => store.get(atom), { storage: createDeepSignal })
 
     const unsub = store.sub(atom, () => {
-      // Hack but it works!
+      // Hack to trigger resource refetch... but it works!
       setCount(prev => (prev + 1))
     })
 
