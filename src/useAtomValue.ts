@@ -10,7 +10,7 @@ type Store = ReturnType<typeof useStore>
 
 interface Options {
   store?: Store
-  delay?: number
+  // delay?: number
 }
 
 export function useAtomValue<Value>(
