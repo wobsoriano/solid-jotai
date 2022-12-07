@@ -1,5 +1,5 @@
 <p>
-  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-jotai&background=tiles&project=%20" alt="{{name_of_lib}}">
+  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-jotai&background=tiles&project=%20" alt="solid-jotai">
 </p>
 
 # solid-jotai
