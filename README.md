@@ -4,6 +4,8 @@
 
 # solid-jotai
 
+# EXPERIMENTAL
+
 [![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
 
 Primitive and flexible state management for Solid based on [Jotai](https://github.com/pmndrs/jotai).

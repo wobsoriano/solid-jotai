@@ -1,42 +1,54 @@
-import type { Component } from 'solid-js'
-import { Suspense } from 'solid-js'
-import { atom } from 'jotai/vanilla'
-import { useAtom } from '../src'
+import { Show, Suspense } from 'solid-js'
+import { animated as a, createSpring } from 'solid-spring'
+import { Provider, atom, useAtom } from '../src'
 
-const urlAtom = atom('https://jsonplaceholder.typicode.com/todos/1')
-const fetchUrlAtom = atom(
-  async (get) => {
-    const response = await fetch(get(urlAtom))
-    return response.json()
-  },
-)
+const postId = atom(9001)
+const postData = atom(async (get) => {
+  const id = get(postId)
+  const response = await fetch(
+    `https://hacker-news.firebaseio.com/v0/item/${id}.json`,
+  )
+  return await response.json()
+})
 
-const randomNumberAtom = atom(0)
-const fetchRandomNumberAtom = atom(
-  get => get(randomNumberAtom),
-  async (_get, set, url: string) => {
-    const response = await fetch(url)
-    set(randomNumberAtom, (await response.json())[0])
-  },
-)
+function Id() {
+  const [id] = useAtom(postId)
+  const props = createSpring(() => ({ from: { id: 0 }, id: id(), reset: true }))
+  return <a.h1>{props().id.to(Math.round)}</a.h1>
+}
 
-const Fetcher: Component = () => {
-  const [json, compute] = useAtom(fetchRandomNumberAtom)
-  // const [json] = useAtom(fetchUrlAtom)
+function Next() {
+  const [, set] = useAtom(postId)
   return (
-    <div>
-      {JSON.stringify(json())}
-      <button onClick={() => compute('https://www.randomnumberapi.com/api/v1.0/random')}>compute</button>
-    </div>
+    <button onClick={() => set(x => x + 1)}>
+      <div>→</div>
+    </button>
   )
 }
 
-const App: Component = () => {
+function PostTitle() {
+  const [post] = useAtom(postData)
   return (
-    <div>
-      <Fetcher />
-    </div>
+    <Show when={post()}>
+      <h2>{post().by}</h2>
+      <h6>{new Date(post().time * 1000).toLocaleDateString('en-US')}</h6>
+      {post().title && <h4>{post().title}</h4>}
+      <a href={post().url}>{post().url}</a>
+      <p>{post().text}</p>
+    </Show>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <Provider>
+      <Id />
+      <div>
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <PostTitle />
+        </Suspense>
+      </div>
+      <Next />
+    </Provider>
+  )
+}
