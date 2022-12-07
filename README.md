@@ -4,8 +4,6 @@
 
 # solid-jotai
 
-# EXPERIMENTAL
-
 [![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
 
 Primitive and flexible state management for Solid based on [Jotai](https://github.com/pmndrs/jotai).
@@ -52,7 +50,7 @@ const mangaAtom = atom({ 'Dragon Ball': 1984, 'One Piece': 1997, 'Naruto': 1999 
 const doubledCountAtom = atom(get => get(countAtom) * 2)
 ```
 
-## Suspense
+## Suspense (in progress)
 
 You can make the read function an async function and use [`<Suspense />`](https://www.solidjs.com/docs/latest/api#suspense):
 

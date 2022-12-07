@@ -13,8 +13,9 @@ const postData = atom(async (get) => {
 
 function Id() {
   const [id] = useAtom(postId)
-  const props = createSpring(() => ({ from: { id: 0 }, id: id(), reset: true }))
-  return <a.h1>{props().id.to(Math.round)}</a.h1>
+  // const props = createSpring(() => ({ from: { id: 0 }, id: id(), reset: true }))
+  // return <a.h1>{props().id.to(Math.round)}</a.h1>
+  return <h1>{id()}</h1>
 }
 
 function Next() {
