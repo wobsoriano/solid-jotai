@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": false,
   "packageManager": "pnpm@7.5.0",
-  "description": "Bite me",
+  "description": "Primitive and flexible state management for Solid based on Jotai.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/wobsoriano/solid-jotai#readme",
@@ -16,7 +16,9 @@
     "url": "https://github.com/wobsoriano/solid-jotai/issues"
   },
   "keywords": [
-    "solid"
+    "solid",
+    "jotai",
+    "state"
   ],
   "sideEffects": false,
   "exports": {
