@@ -50,7 +50,7 @@ const mangaAtom = atom({ 'Dragon Ball': 1984, 'One Piece': 1997, 'Naruto': 1999 
 const doubledCountAtom = atom(get => get(countAtom) * 2)
 ```
 
-## Suspense (in progress)
+## Suspense
 
 You can make the read function an async function and use [`<Suspense />`](https://www.solidjs.com/docs/latest/api#suspense):
 
