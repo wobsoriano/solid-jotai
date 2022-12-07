@@ -2,7 +2,7 @@
   <img width="100%" src="https://assets.solidjs.com/banner?type=solid-jotai&background=tiles&project=%20" alt="{{name_of_lib}}">
 </p>
 
-# {{name_of_lib}}
+# solid-jotai
 
 [![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
 

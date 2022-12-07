@@ -7,7 +7,7 @@ const urlAtom = atom('https://jsonplaceholder.typicode.com/todos/1')
 const fetchUrlAtom = atom(
   async (get) => {
     const response = await fetch(get(urlAtom))
-    return await response.json()
+    return response.json()
   },
 )
 
@@ -21,12 +21,12 @@ const fetchRandomNumberAtom = atom(
 )
 
 const Fetcher: Component = () => {
-  const [value, compute] = useAtom(fetchRandomNumberAtom)
-  // const [value] = useAtomAsync(fetchUrlAtom)
+  // const [value, compute] = useAtom(fetchRandomNumberAtom)
+  const [json] = useAtom(fetchUrlAtom)
   return (
     <div>
-      {value()}
-      <button onClick={() => compute('https://www.randomnumberapi.com/api/v1.0/random')}>compute</button>
+      {JSON.stringify(json())}
+      {/* <button onClick={() => compute('https://www.randomnumberapi.com/api/v1.0/random')}>compute</button> */}
     </div>
   )
 }
