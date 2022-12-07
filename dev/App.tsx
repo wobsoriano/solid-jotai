@@ -8,7 +8,13 @@ const postData = atom(async (get) => {
   const response = await fetch(
     `https://hacker-news.firebaseio.com/v0/item/${id}.json`,
   )
-  return await response.json()
+  return await response.json() as {
+    by: string
+    time: number
+    title: string
+    url: string
+    text: string
+  }
 })
 
 function Id() {
@@ -30,11 +36,11 @@ function PostTitle() {
   const [post] = useAtom(postData)
   return (
     <Show when={post()}>
-      <h2>{post().by}</h2>
-      <h6>{new Date(post().time * 1000).toLocaleDateString('en-US')}</h6>
-      {post().title && <h4>{post().title}</h4>}
-      <a href={post().url}>{post().url}</a>
-      <p>{post().text}</p>
+      <h2>{post()?.by}</h2>
+      <h6>{new Date(post()!.time * 1000).toLocaleDateString('en-US')}</h6>
+      {post()?.title && <h4>{post()?.title}</h4>}
+      <a href={post()?.url}>{post()?.url}</a>
+      <p>{post()?.text}</p>
     </Show>
   )
 }

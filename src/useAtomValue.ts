@@ -1,8 +1,8 @@
 import type { Atom, ExtractAtomValue } from 'jotai/vanilla'
-import type { Accessor } from 'solid-js'
 import { createResource, createSignal, onCleanup } from 'solid-js'
 import { createDeepSignal } from './createDeepSignal'
 import { useStore } from './Provider'
+import type { AwaitedAccessorOrResource } from './useAtom'
 
 const isPromise = (x: unknown): x is Promise<unknown> => x instanceof Promise
 
@@ -16,12 +16,12 @@ interface Options {
 export function useAtomValue<Value>(
   atom: Atom<Value>,
   options?: Options
-): Accessor<Awaited<Value>>
+): AwaitedAccessorOrResource<Value>
 
 export function useAtomValue<AtomType extends Atom<unknown>>(
   atom: AtomType,
   options?: Options
-): Accessor<Awaited<ExtractAtomValue<AtomType>>>
+): AwaitedAccessorOrResource<ExtractAtomValue<AtomType>>
 
 export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
   const store = useStore(options)
