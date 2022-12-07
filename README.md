@@ -66,7 +66,7 @@ const fetchUrlAtom = atom(
 )
 
 function TodoList() {
-  const [json] = useAtom(fetchCountAtom)
+  const [json] = useAtom(fetchUrlAtom)
   return <div>{JSON.stringify(json())}</div>
 }
 
@@ -109,3 +109,9 @@ function App() {
   )
 }
 ```
+
+Read more about [Jotai](https://github.com/pmndrs/jotai) here.
+
+## License
+
+MIT
