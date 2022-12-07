@@ -21,12 +21,12 @@ const fetchRandomNumberAtom = atom(
 )
 
 const Fetcher: Component = () => {
-  // const [value, compute] = useAtom(fetchRandomNumberAtom)
-  const [json] = useAtom(fetchUrlAtom)
+  const [json, compute] = useAtom(fetchRandomNumberAtom)
+  // const [json] = useAtom(fetchUrlAtom)
   return (
     <div>
       {JSON.stringify(json())}
-      {/* <button onClick={() => compute('https://www.randomnumberapi.com/api/v1.0/random')}>compute</button> */}
+      <button onClick={() => compute('https://www.randomnumberapi.com/api/v1.0/random')}>compute</button>
     </div>
   )
 }
@@ -34,9 +34,7 @@ const Fetcher: Component = () => {
 const App: Component = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Fetcher />
-      </Suspense>
+      <Fetcher />
     </div>
   )
 }
