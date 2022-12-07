@@ -1,6 +1,6 @@
 import type { Atom, ExtractAtomValue } from 'jotai/vanilla'
 import type { Accessor } from 'solid-js'
-import { createResource, onCleanup } from 'solid-js'
+import { createResource, createSignal, onCleanup } from 'solid-js'
 import { createDeepSignal } from './createDeepSignal'
 import { useStore } from './Provider'
 
@@ -26,13 +26,13 @@ export function useAtomValue<AtomType extends Atom<unknown>>(
 export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
   const store = useStore(options)
   const initial = store.get(atom)
+  const [count, setCount] = createSignal(0)
 
   if (isPromise(initial)) {
-    const [atomValue, { mutate }] = createResource(() => initial, { storage: createDeepSignal })
+    const [atomValue] = createResource(count, () => store.get(atom), { storage: createDeepSignal })
 
     const unsub = store.sub(atom, () => {
-      const nextPromise = store.get(atom) as Promise<Value>
-      nextPromise.then(mutate)
+      setCount(prev => (prev + 1))
     })
 
     onCleanup(unsub)
