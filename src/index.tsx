@@ -1,4 +1,4 @@
-import { atom } from 'jotai/vanilla'
+import { atom, createStore } from 'jotai/vanilla'
 
 export {
   useAtomValue,
@@ -19,4 +19,5 @@ export {
 
 export {
   atom,
+  createStore,
 }
