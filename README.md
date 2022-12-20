@@ -58,7 +58,7 @@ const asyncAtom = atom(async () => 'hello')
 
 ## Suspense
 
-Components that use async atoms can leverage [`<Suspense />`](https://www.solidjs.com/docs/latest/api#suspense):
+You can make the read function an async function and leverage [`<Suspense />`](https://www.solidjs.com/docs/latest/api#suspense):
 
 ```tsx
 const urlAtom = atom('https://jsonplaceholder.typicode.com/todos')
