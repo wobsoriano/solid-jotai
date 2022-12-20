@@ -48,8 +48,12 @@ const countryAtom = atom('Japan')
 const citiesAtom = atom(['Tokyo', 'Kyoto', 'Osaka'])
 const mangaAtom = atom({ 'Dragon Ball': 1984, 'One Piece': 1997, 'Naruto': 1999 })
 
-// Derived atom
+// Derived atoms
 const doubledCountAtom = atom(get => get(countAtom) * 2)
+const sum = atom(get => get(countAtom) + get(doubledCountAtom))
+
+// Async atoms
+const asyncAtom = atom(async () => 'hello')
 ```
 
 ## Suspense
