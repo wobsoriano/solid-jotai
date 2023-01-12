@@ -1,5 +1,5 @@
 import type { Atom, ExtractAtomValue } from 'jotai/vanilla'
-import { createResource, createSignal, onCleanup } from 'solid-js'
+import { createResource, onCleanup } from 'solid-js'
 import { createDeepSignal } from './createDeepSignal'
 import { useStore } from './Provider'
 import type { AwaitedAccessorOrResource } from './useAtom'
@@ -26,17 +26,13 @@ export function useAtomValue<AtomType extends Atom<unknown>>(
 export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
   const store = useStore(options)
   const initial = store.get(atom)
-  const [count, setCount] = createSignal(0)
 
   if (isPromise(initial)) {
-    const [atomValue] = createResource(count, () => store.get(atom), { storage: createDeepSignal })
+    const [atomValue, { refetch }] = createResource(() => store.get(atom), { storage: createDeepSignal })
 
-    const unsub = store.sub(atom, () => {
-      // Hack to trigger resource refetch... but it works!
-      setCount(prev => (prev + 1))
-    })
+    const unsub = store.sub(atom, () => refetch())
 
-    onCleanup(unsub)
+    onCleanup(() => unsub())
 
     return atomValue
   }
@@ -48,7 +44,7 @@ export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
     setAtomValue(() => nextValue)
   })
 
-  onCleanup(unsub)
+  onCleanup(() => unsub())
 
   return atomValue
 }
