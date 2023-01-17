@@ -41,7 +41,7 @@
   ],
   "scripts": {
     "dev": "vite serve dev",
-    "test": "echo \"test not setup\"",
+    "test": "vitest run",
     "build": "rollup -c",
     "prepublishOnly": "pnpm build",
     "update-deps": "taze -w && pnpm i",
@@ -60,6 +60,7 @@
     "eslint": "^8.32.0",
     "eslint-plugin-solid": "^0.8.0",
     "jotai": "^1.13.1",
+    "jsdom": "^21.0.0",
     "rollup": "^2.79.1",
     "rollup-preset-solid": "^1.4.0",
     "solid-js": "^1.6.9",
@@ -67,7 +68,8 @@
     "taze": "^0.7.6",
     "typescript": "^4.9.4",
     "vite": "^3.2.5",
-    "vite-plugin-solid": "^2.5.0"
+    "vite-plugin-solid": "^2.5.0",
+    "vitest": "^0.27.1"
   },
   "eslintConfig": {
     "plugins": [
