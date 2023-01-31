@@ -8,8 +8,6 @@
 
 Primitive and flexible state management for Solid based on [Jotai](https://github.com/pmndrs/jotai).
 
-Experimental. Check [this](https://github.com/pmndrs/jotai/discussions/1514) for more info.
-
 ## Quick start
 
 Install it:
