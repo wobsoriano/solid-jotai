@@ -72,7 +72,7 @@
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
-    "jotai": ">=1.13.0",
+    "jotai": ">=2.0.0",
     "solid-js": ">=1.6.0"
   },
   "devDependencies": {
@@ -82,7 +82,7 @@
     "esbuild-plugin-solid": "^0.4.2",
     "eslint": "^8.33.0",
     "eslint-plugin-solid": "^0.8.0",
-    "jotai": "^1.13.1",
+    "jotai": "^2.0.0",
     "jsdom": "^21.1.0",
     "solid-js": "^1.6.10",
     "solid-spring": "^0.0.7",

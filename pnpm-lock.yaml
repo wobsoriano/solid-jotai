@@ -7,7 +7,7 @@ specifiers:
   esbuild-plugin-solid: ^0.4.2
   eslint: ^8.33.0
   eslint-plugin-solid: ^0.8.0
-  jotai: ^1.13.1
+  jotai: ^2.0.0
   jsdom: ^21.1.0
   solid-js: ^1.6.10
   solid-spring: ^0.0.7
@@ -26,7 +26,7 @@ devDependencies:
   esbuild-plugin-solid: 0.4.2_6algvqdl2yrzre7xfktwpsdggq
   eslint: 8.33.0
   eslint-plugin-solid: 0.8.0_4vsywjlpuriuw3tl5oq6zy5a64
-  jotai: 1.13.1
+  jotai: 2.0.0
   jsdom: 21.1.0
   solid-js: 1.6.10
   solid-spring: 0.0.7_solid-js@1.6.10
@@ -3260,44 +3260,13 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
-  /jotai/1.13.1:
-    resolution: {integrity: sha512-RUmH1S4vLsG3V6fbGlKzGJnLrDcC/HNb5gH2AeA9DzuJknoVxSGvvg8OBB7lke+gDc4oXmdVsaKn/xDUhWZ0vw==}
+  /jotai/2.0.0:
+    resolution: {integrity: sha512-04G0CRZQgp3xrFAezd6X14psZ2TRGekHeYMBcbDJ/BR8ZJQPS+j0YkMTxUxyG58HJnN2+adfj5sWQWoqgtp1XQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
-      '@babel/core': '*'
-      '@babel/template': '*'
-      jotai-devtools: '*'
-      jotai-immer: '*'
-      jotai-optics: '*'
-      jotai-redux: '*'
-      jotai-tanstack-query: '*'
-      jotai-urql: '*'
-      jotai-valtio: '*'
-      jotai-xstate: '*'
-      jotai-zustand: '*'
-      react: '>=16.8'
+      react: '>=17.0.0'
     peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@babel/template':
-        optional: true
-      jotai-devtools:
-        optional: true
-      jotai-immer:
-        optional: true
-      jotai-optics:
-        optional: true
-      jotai-redux:
-        optional: true
-      jotai-tanstack-query:
-        optional: true
-      jotai-urql:
-        optional: true
-      jotai-valtio:
-        optional: true
-      jotai-xstate:
-        optional: true
-      jotai-zustand:
+      react:
         optional: true
     dev: true
 
