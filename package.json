@@ -78,21 +78,21 @@
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.29.4",
     "bumpp": "^8.2.1",
-    "esbuild": "^0.17.1",
+    "esbuild": "^0.17.5",
     "esbuild-plugin-solid": "^0.4.2",
-    "eslint": "^8.32.0",
+    "eslint": "^8.33.0",
     "eslint-plugin-solid": "^0.8.0",
     "jotai": "^1.13.1",
-    "jsdom": "^21.0.0",
-    "solid-js": "^1.6.9",
+    "jsdom": "^21.1.0",
+    "solid-js": "^1.6.10",
     "solid-spring": "^0.0.7",
     "taze": "^0.7.6",
     "tsup": "^6.5.0",
     "tsup-preset-solid": "^0.0.6",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "vite": "^4.0.4",
     "vite-plugin-solid": "^2.5.0",
-    "vitest": "^0.27.1"
+    "vitest": "^0.27.3"
   },
   "eslintConfig": {
     "plugins": [
