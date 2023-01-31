@@ -1,13 +1,17 @@
 import { defineConfig } from 'tsup-preset-solid'
 
 export default defineConfig(
+  [
+    {
+      entry: 'src/index.tsx',
+      devEntry: true,
+    },
+    {
+      entry: 'src/utils.tsx'
+    },
+  ],
   {
-    entry: 'src/index.tsx',
-    devEntry: true,
+    cjs: true,
     dropConsole: true,
-  },
-  {
-    // Enable this to write export conditions to package.json
-    // writePackageJson: true,
-  },
+  }
 )
