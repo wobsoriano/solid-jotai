@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.29.4",
+    "@solidjs/testing-library": "^0.6.0",
     "bumpp": "^8.2.1",
     "esbuild": "^0.17.5",
     "esbuild-plugin-solid": "^0.5.0",
