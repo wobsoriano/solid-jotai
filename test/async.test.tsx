@@ -23,7 +23,7 @@ it('does not show async stale result', async () => {
     }
     return (
       <>
-        <div>count: {count}</div>
+        <div>count: {count()}</div>
         <button onClick={onClick}>button</button>
       </>
     )
