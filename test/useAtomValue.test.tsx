@@ -1,6 +1,6 @@
 import { it } from 'vitest'
+import { fireEvent, render } from '@solidjs/testing-library'
 import { atom, useAtomValue, useSetAtom } from '../src'
-import { render, fireEvent } from '@solidjs/testing-library'
 
 it('useAtomValue basic test', async () => {
   const countAtom = atom(0)
@@ -11,7 +11,7 @@ it('useAtomValue basic test', async () => {
 
     return (
       <>
-        <div>count: {count}</div>
+        <div>count: {count()}</div>
         <button onClick={() => setCount(count() + 1)}>dispatch</button>
       </>
     )

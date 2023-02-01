@@ -1,6 +1,6 @@
 import { render, waitFor } from '@solidjs/testing-library'
-import { atom, Provider, useAtom, createStore } from '../src'
 import { it } from 'vitest'
+import { Provider, atom, createStore, useAtom } from '../src'
 
 it('uses initial values from provider', async () => {
   const countAtom = atom(1)

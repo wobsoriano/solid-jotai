@@ -1,13 +1,14 @@
-import { render, fireEvent, waitFor } from '@solidjs/testing-library'
-import { atom, useAtom } from '../src'
+/* eslint-disable promise/param-names */
+import { fireEvent, render, waitFor } from '@solidjs/testing-library'
 import { expect, it } from 'vitest'
-import { createEffect, Suspense } from 'solid-js'
+import { Suspense, createEffect } from 'solid-js'
+import { atom, useAtom } from '../src'
 
 it('does not show async stale result', async () => {
   const countAtom = atom(0)
   let resolve2 = () => {}
   const asyncCountAtom = atom(async (get) => {
-    await new Promise<void>((r) => (resolve2 = r))
+    await new Promise<void>(r => (resolve2 = r))
     return get(countAtom)
   })
 
@@ -17,9 +18,9 @@ it('does not show async stale result', async () => {
   const Counter = () => {
     const [count, setCount] = useAtom(countAtom)
     const onClick = async () => {
-      setCount((c) => c + 1)
-      await new Promise<void>((r) => (resolve1 = r))
-      setCount((c) => c + 1)
+      setCount(c => c + 1)
+      await new Promise<void>(r => (resolve1 = r))
+      setCount(c => c + 1)
     }
     return (
       <>
@@ -71,10 +72,10 @@ it('does not show async stale result on derived atom', async () => {
   let resolve = () => {}
   const asyncAlwaysNullAtom = atom(async (get) => {
     get(countAtom)
-    await new Promise<void>((r) => (resolve = r))
+    await new Promise<void>(r => (resolve = r))
     return null
   })
-  const derivedAtom = atom((get) => get(asyncAlwaysNullAtom))
+  const derivedAtom = atom(get => get(asyncAlwaysNullAtom))
 
   const DisplayAsyncValue = () => {
     const [asyncValue] = useAtom(asyncAlwaysNullAtom)
@@ -98,7 +99,7 @@ it('does not show async stale result on derived atom', async () => {
         <Suspense fallback={<div>loading derived value</div>}>
           <DisplayDerivedValue />
         </Suspense>
-        <button onClick={() => setCount((c) => c + 1)}>button</button>
+        <button onClick={() => setCount(c => c + 1)}>button</button>
       </div>
     )
   }
@@ -143,7 +144,7 @@ it('works with async get with extra deps', async () => {
   let resolve = () => {}
   const asyncCountAtom = atom(async (get) => {
     get(anotherAtom)
-    await new Promise<void>((r) => (resolve = r))
+    await new Promise<void>(r => (resolve = r))
     return get(countAtom)
   })
 
@@ -152,7 +153,7 @@ it('works with async get with extra deps', async () => {
     return (
       <>
         <div>count: {count()}</div>
-        <button onClick={() => setCount((c) => c + 1)}>button</button>
+        <button onClick={() => setCount(c => c + 1)}>button</button>
       </>
     )
   }
@@ -190,7 +191,7 @@ it('reuses promises on initial read', async () => {
   let resolve = () => {}
   const asyncAtom = atom(async () => {
     invokeCount += 1
-    await new Promise<void>((r) => (resolve = r))
+    await new Promise<void>(r => (resolve = r))
     return 'ready'
   })
 
@@ -215,11 +216,11 @@ it('reuses promises on initial read', async () => {
 it('uses multiple async atoms at once', async () => {
   const resolve: (() => void)[] = []
   const someAtom = atom(async () => {
-    await new Promise<void>((r) => resolve.push(r))
+    await new Promise<void>(r => resolve.push(r))
     return 'ready'
   })
   const someAtom2 = atom(async () => {
-    await new Promise<void>((r) => resolve.push(r))
+    await new Promise<void>(r => resolve.push(r))
     return 'ready2'
   })
 
@@ -243,7 +244,7 @@ it('uses multiple async atoms at once', async () => {
 
   await findByText('loading')
   await waitFor(() => {
-    resolve.splice(0).forEach((fn) => fn())
+    resolve.splice(0).forEach(fn => fn())
     getByText('ready ready2')
   })
 })

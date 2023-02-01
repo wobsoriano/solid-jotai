@@ -1,16 +1,16 @@
-import { render, fireEvent, waitFor } from '@solidjs/testing-library'
+import { fireEvent, render, waitFor } from '@solidjs/testing-library'
 import { it } from 'vitest'
+import type { Component, JSX } from 'solid-js'
 import { atom, useAtomValue, useSetAtom } from '../src'
-import type { JSX } from 'solid-js'
 
 it('useSetAtom with write without an argument', async () => {
   const countAtom = atom(0)
   const incrementCountAtom = atom(null, (get, set) =>
-    set(countAtom, get(countAtom) + 1)
+    set(countAtom, get(countAtom) + 1),
   )
 
-  const Button = ({ cb, children }: { cb: () => void; children: JSX.Element }) => (
-    <button onClick={cb}>{children}</button>
+  const Button: Component<{ cb: () => void; children: JSX.Element }> = props => (
+    <button onClick={props.cb}>{props.children}</button>
   )
 
   const Displayer = () => {
