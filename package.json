@@ -69,24 +69,24 @@
     "solid-js": ">=1.6.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.29.4",
-    "@solidjs/testing-library": "^0.6.1",
-    "bumpp": "^8.2.1",
-    "esbuild": "^0.17.14",
+    "@antfu/eslint-config-ts": "^0.38.4",
+    "@solidjs/testing-library": "^0.7.0",
+    "bumpp": "^9.1.0",
+    "esbuild": "^0.17.16",
     "esbuild-plugin-solid": "^0.5.0",
-    "eslint": "^8.36.0",
-    "eslint-plugin-solid": "^0.8.0",
-    "jotai": "^2.0.3",
+    "eslint": "^8.38.0",
+    "eslint-plugin-solid": "^0.12.0",
+    "jotai": "^2.0.4",
     "jsdom": "^21.1.1",
-    "solid-js": "^1.6.15",
+    "solid-js": "^1.7.3",
     "solid-spring": "^0.0.7",
-    "taze": "^0.7.6",
+    "taze": "^0.9.1",
     "tsup": "^6.7.0",
     "tsup-preset-solid": "^0.1.8",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.4",
     "vite": "^4.2.1",
-    "vite-plugin-solid": "^2.6.1",
-    "vitest": "^0.28.5"
+    "vite-plugin-solid": "^2.7.0",
+    "vitest": "^0.30.1"
   },
   "eslintConfig": {
     "plugins": [
