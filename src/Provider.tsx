@@ -11,7 +11,7 @@ interface Options {
   children?: JSX.Element
 }
 
-export const useStore = (options?: Options) => {
+export function useStore(options?: Options) {
   const store = useContext(StoreContext)
   return options?.store || store || getDefaultStore()
 }

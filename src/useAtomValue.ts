@@ -4,7 +4,9 @@ import { createDeepSignal } from './createDeepSignal'
 import { useStore } from './Provider'
 import type { AwaitedAccessorOrResource } from './useAtom'
 
-const isPromise = (x: unknown): x is Promise<unknown> => x instanceof Promise
+function isPromise(x: unknown): x is Promise<unknown> {
+  return x instanceof Promise
+}
 
 type Store = ReturnType<typeof useStore>
 

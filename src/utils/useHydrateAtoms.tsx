@@ -7,7 +7,7 @@ type AnyWritableAtom = WritableAtom<unknown, any[], any>
 
 const hydratedMap: WeakMap<Store, WeakSet<AnyWritableAtom>> = new WeakMap()
 
-const getHydratedSet = (store: Store) => {
+function getHydratedSet(store: Store) {
   let hydratedSet = hydratedMap.get(store)
   if (!hydratedSet) {
     hydratedSet = new WeakSet()

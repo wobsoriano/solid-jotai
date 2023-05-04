@@ -7,11 +7,11 @@ export default defineConfig(
       devEntry: true,
     },
     {
-      entry: 'src/utils.tsx'
+      entry: 'src/utils.tsx',
     },
   ],
   {
     cjs: true,
     dropConsole: true,
-  }
+  },
 )
