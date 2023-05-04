@@ -27,17 +27,17 @@
       "import": "./dist/index/index.jsx"
     },
     "development": {
+      "require": "./dist/index/dev.cjs",
       "import": {
         "types": "./dist/index/index.d.ts",
         "default": "./dist/index/dev.js"
-      },
-      "require": "./dist/index/dev.cjs"
+      }
     },
+    "require": "./dist/index/index.cjs",
     "import": {
       "types": "./dist/index/index.d.ts",
       "default": "./dist/index/index.js"
     },
-    "require": "./dist/index/index.cjs",
     "utils": {
       "require": "./dist/utils/index.cjs",
       "import": {
@@ -50,8 +50,12 @@
   "module": "./dist/index/index.js",
   "types": "./dist/index/index.d.ts",
   "browser": {},
+  "typesVersions": {
+    "*": {}
+  },
   "files": [
-    "dist"
+    "dist",
+    "utils.d.ts"
   ],
   "scripts": {
     "dev": "vite serve dev",
@@ -96,8 +100,5 @@
       "@antfu/eslint-config-ts",
       "plugin:solid/typescript"
     ]
-  },
-  "typesVersions": {
-    "*": {}
   }
 }
