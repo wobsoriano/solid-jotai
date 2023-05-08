@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.2.1",
   "private": false,
-  "packageManager": "pnpm@7.25.0",
+  "packageManager": "pnpm@7.32.3",
   "description": "Primitive and flexible state management for Solid based on Jotai.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
@@ -64,24 +64,24 @@
     "solid-js": ">=1.6.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.38.4",
+    "@antfu/eslint-config-ts": "^0.38.6",
     "@solidjs/testing-library": "^0.7.0",
     "bumpp": "^9.1.0",
-    "esbuild": "^0.17.16",
+    "esbuild": "^0.17.18",
     "esbuild-plugin-solid": "^0.5.0",
-    "eslint": "^8.38.0",
-    "eslint-plugin-solid": "^0.12.0",
-    "jotai": "^2.0.4",
-    "jsdom": "^21.1.1",
-    "solid-js": "^1.7.3",
+    "eslint": "^8.40.0",
+    "eslint-plugin-solid": "^0.12.1",
+    "jotai": "^2.1.0",
+    "jsdom": "^22.0.0",
+    "solid-js": "^1.7.5",
     "solid-spring": "^0.0.7",
-    "taze": "^0.9.1",
+    "taze": "^0.10.1",
     "tsup": "^6.7.0",
     "tsup-preset-solid": "^0.1.8",
     "typescript": "^5.0.4",
-    "vite": "^4.2.1",
+    "vite": "^4.3.5",
     "vite-plugin-solid": "^2.7.0",
-    "vitest": "^0.30.1"
+    "vitest": "^0.31.0"
   },
   "eslintConfig": {
     "plugins": [
