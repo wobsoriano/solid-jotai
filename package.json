@@ -60,7 +60,7 @@
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
-    "jotai": ">=2.0.0",
+    "jotai": ">=2.1.0",
     "solid-js": ">=1.6.0"
   },
   "devDependencies": {
