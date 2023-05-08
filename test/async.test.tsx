@@ -35,7 +35,7 @@ it('does not show async stale result', async () => {
     createEffect(() => {
       committed.push(delayedCount()!)
     })
-    return <div>delayedCount: {delayedCount}</div>
+    return <div>delayedCount: {delayedCount()}</div>
   }
 
   const { getByText, findByText } = render(() => (
