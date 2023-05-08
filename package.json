@@ -22,23 +22,14 @@
   ],
   "sideEffects": false,
   "exports": {
-    "solid": {
-      "development": "./dist/index/dev.jsx",
-      "import": "./dist/index/index.jsx"
-    },
-    "development": {
-      "require": "./dist/index/dev.cjs",
+    ".": {
+      "require": "./dist/index/index.cjs",
       "import": {
         "types": "./dist/index/index.d.ts",
-        "default": "./dist/index/dev.js"
+        "default": "./dist/index/index.js"
       }
     },
-    "require": "./dist/index/index.cjs",
-    "import": {
-      "types": "./dist/index/index.d.ts",
-      "default": "./dist/index/index.js"
-    },
-    "utils": {
+    "./utils": {
       "require": "./dist/utils/index.cjs",
       "import": {
         "types": "./dist/utils/index.d.ts",
