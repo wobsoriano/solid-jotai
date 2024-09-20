@@ -4,8 +4,8 @@ import { createDeepSignal } from './createDeepSignal'
 import { useStore } from './Provider'
 import type { AwaitedAccessorOrResource } from './useAtom'
 
-function isPromise(x: unknown): x is Promise<unknown> {
-  return x instanceof Promise
+function isPromiseLike(x: unknown): x is PromiseLike<unknown> {
+  return typeof (x as any)?.then === 'function'
 }
 
 type Store = ReturnType<typeof useStore>
@@ -29,7 +29,7 @@ export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
   const store = useStore(options)
   const initial = store.get(atom)
 
-  if (isPromise(initial)) {
+  if (isPromiseLike(initial)) {
     const [atomValue, { refetch }] = createResource(() => store.get(atom), { storage: createDeepSignal })
 
     const unsub = store.sub(atom, () => refetch())

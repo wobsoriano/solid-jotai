@@ -30,8 +30,7 @@ export function useSetAtom<Value, Args extends unknown[], Result>(
 ) {
   const store = useStore(options)
   function setAtom(...args: Args) {
-    // @ts-expect-error: TODO meta types
-    if (import.meta.env.DEV && !('write' in atom)) {
+    if (import.meta.env?.MODE !== 'production' && !('write' in atom)) {
       // useAtom can pass non writable atom with wrong type assertion,
       // so we should check here.
       throw new Error('not writable atom')
