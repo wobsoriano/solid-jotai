@@ -1,7 +1,7 @@
 {
   "name": "solid-jotai",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": false,
   "packageManager": "pnpm@9.10.0",
   "description": "Primitive and flexible state management for Solid based on Jotai.",
