@@ -55,7 +55,7 @@
     "prepublishOnly": "pnpm build",
     "update-deps": "taze -w && pnpm i",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp && pnpm publish",
+    "release": "pnpm build && changeset publish",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
