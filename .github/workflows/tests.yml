@@ -1,43 +1,48 @@
-name: Build and Test
+name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
-    runs-on: ${{ matrix.operating-system }}
-
+  test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [16.x, 17.x]
-        operating-system: [ubuntu-latest]
+        node: [20.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 2
-
-      - uses: pnpm/action-setup@v2.2.2
-
-      - name: Setup Node.js environment ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          version: 9.10.0
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build
-        run: pnpm run build
-
-      - name: Test
-        run: pnpm run test
-        env:
-          CI: true
+      - name: Lint
+        run: pnpm lint
 
       - name: Typecheck
-        run: pnpm run typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
