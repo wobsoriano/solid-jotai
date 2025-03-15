@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.3.0",
   "private": false,
-  "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@10.6.3",
   "description": "Primitive and flexible state management for Solid based on Jotai.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
