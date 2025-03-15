@@ -23,18 +23,39 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "solid": {
+        "development": "./dist/index/dev.jsx",
+        "import": "./dist/index/index.jsx"
+      },
+      "development": {
+        "import": {
+          "types": "./dist/index/index.d.ts",
+          "default": "./dist/index/dev.js"
+        },
+        "require": {
+          "types": "./dist/index/index.d.cts",
+          "default": "./dist/index/dev.cjs"
+        }
+      },
       "import": {
         "types": "./dist/index/index.d.ts",
         "default": "./dist/index/index.js"
       },
-      "require": "./dist/index/index.cjs"
+      "require": {
+        "types": "./dist/index/index.d.cts",
+        "default": "./dist/index/index.cjs"
+      }
     },
     "./utils": {
+      "solid": "./dist/utils/index.jsx",
       "import": {
         "types": "./dist/utils/index.d.ts",
         "default": "./dist/utils/index.js"
       },
-      "require": "./dist/utils/index.cjs"
+      "require": {
+        "types": "./dist/utils/index.d.cts",
+        "default": "./dist/utils/index.cjs"
+      }
     }
   },
   "main": "./dist/index/index.cjs",
@@ -42,7 +63,11 @@
   "types": "./dist/index/index.d.ts",
   "browser": {},
   "typesVersions": {
-    "*": {}
+    "*": {
+      "utils": [
+        "./dist/utils/index.d.ts"
+      ]
+    }
   },
   "files": [
     "dist",
@@ -67,6 +92,7 @@
     "@antfu/eslint-config": "^4.10.1",
     "@changesets/cli": "^2.28.1",
     "@solidjs/testing-library": "^0.8.10",
+    "@types/node": "^22.13.10",
     "esbuild": "^0.25.1",
     "esbuild-plugin-solid": "^0.6.0",
     "eslint": "9.22.0",
