@@ -12,14 +12,8 @@ it('uses initial values from provider', async () => {
 
     return (
       <>
-        <p>
-          count:
-          {count()}
-        </p>
-        <p>
-          pet:
-          {pet()}
-        </p>
+        <p>count: {count()}</p>
+        <p>pet: {pet()}</p>
       </>
     )
   }
@@ -50,14 +44,8 @@ it('only uses initial value from provider for specific atom', async () => {
 
     return (
       <>
-        <p>
-          count:
-          {count()}
-        </p>
-        <p>
-          pet:
-          {pet()}
-        </p>
+        <p>count: {count()}</p>
+        <p>pet: {pet()}</p>
       </>
     )
   }

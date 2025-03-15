@@ -14,10 +14,7 @@ it('onMount basic test', async () => {
 
     return (
       <>
-        <div>
-          count:
-          {count()}
-        </div>
+        <div>count: {count()}</div>
         <button onClick={() => setCount(count() + 1)}>dispatch</button>
       </>
     )

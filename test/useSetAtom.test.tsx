@@ -15,10 +15,7 @@ it('useSetAtom with write without an argument', async () => {
   const Displayer = () => {
     const count = useAtomValue(countAtom)
     return (
-      <div>
-        count:
-        {count()}
-      </div>
+      <div>count: {count()}</div>
     )
   }
 

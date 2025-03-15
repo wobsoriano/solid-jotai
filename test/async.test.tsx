@@ -23,10 +23,7 @@ it('does not show async stale result', async () => {
     }
     return (
       <>
-        <div>
-          count:
-          {count()}
-        </div>
+        <div>count: {count()}</div>
         <button onClick={onClick}>button</button>
       </>
     )
@@ -38,10 +35,7 @@ it('does not show async stale result', async () => {
       committed.push(delayedCount()!)
     })
     return (
-      <div>
-        delayedCount:
-        {delayedCount()}
-      </div>
+      <div>delayedCount: {delayedCount()}</div>
     )
   }
 
@@ -88,20 +82,14 @@ it('does not show async stale result on derived atom', async () => {
     const [asyncValue] = useAtom(asyncAlwaysNullAtom)
 
     return (
-      <div>
-        async value:
-        {JSON.stringify(asyncValue())}
-      </div>
+      <div>async value: {JSON.stringify(asyncValue())}</div>
     )
   }
 
   const DisplayDerivedValue = () => {
     const [derivedValue] = useAtom(derivedAtom)
     return (
-      <div>
-        derived value:
-        {JSON.stringify(derivedValue())}
-      </div>
+      <div>derived value: {JSON.stringify(derivedValue())}</div>
     )
   }
 
@@ -109,10 +97,7 @@ it('does not show async stale result on derived atom', async () => {
     const [count, setCount] = useAtom(countAtom)
     return (
       <div>
-        <div>
-          count:
-          {count()}
-        </div>
+        <div>count: {count()}</div>
         <Suspense fallback={<div>loading async value</div>}>
           <DisplayAsyncValue />
         </Suspense>
@@ -172,10 +157,7 @@ it('works with async get with extra deps', async () => {
     const [count, setCount] = useAtom(countAtom)
     return (
       <>
-        <div>
-          count:
-          {count()}
-        </div>
+        <div>count: {count()}</div>
         <button onClick={() => setCount(c => c + 1)}>button</button>
       </>
     )
@@ -184,10 +166,7 @@ it('works with async get with extra deps', async () => {
   const DelayedCounter = () => {
     const [delayedCount] = useAtom(asyncCountAtom)
     return (
-      <div>
-        delayedCount:
-        {delayedCount()}
-      </div>
+      <div>delayedCount: {delayedCount()}</div>
     )
   }
 
@@ -257,11 +236,7 @@ it('uses multiple async atoms at once', async () => {
     const [some2] = useAtom(someAtom2)
     return (
       <>
-        <div>
-          {some()}
-          {' '}
-          {some2()}
-        </div>
+        <div>{some()} {some2()}</div>
       </>
     )
   }
