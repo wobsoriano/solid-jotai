@@ -33,6 +33,7 @@ export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
     const [atomValue, { refetch }] = createResource(() => store.get(atom), { storage: createDeepSignal })
 
     const unsub = store.sub(atom, () => refetch())
+    refetch()
 
     onCleanup(() => unsub())
 
@@ -41,10 +42,16 @@ export function useAtomValue<Value>(atom: Atom<Value>, options?: Options) {
 
   const [atomValue, setAtomValue] = createDeepSignal(initial)
 
-  const unsub = store.sub(atom, () => {
+  const update = () => {
     const nextValue = store.get(atom)
     setAtomValue(() => nextValue)
-  })
+  }
+
+  // The sub function will run the `onMount` before attaching the listener.
+  // https://github.com/pmndrs/jotai/blob/1b7771066fed48fdace1144c9dad52fa3731f7c0/src/vanilla/store.ts#L628
+  const unsub = store.sub(atom, update)
+
+  update()
 
   onCleanup(() => unsub())
 
