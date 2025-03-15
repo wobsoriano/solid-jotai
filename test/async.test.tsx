@@ -1,7 +1,6 @@
-/* eslint-disable promise/param-names */
 import { fireEvent, render, waitFor } from '@solidjs/testing-library'
+import { createEffect, Suspense } from 'solid-js'
 import { expect, it } from 'vitest'
-import { Suspense, createEffect } from 'solid-js'
 import { atom, useAtom } from '../src'
 
 it('does not show async stale result', async () => {
@@ -24,7 +23,10 @@ it('does not show async stale result', async () => {
     }
     return (
       <>
-        <div>count: {count()}</div>
+        <div>
+          count:
+          {count()}
+        </div>
         <button onClick={onClick}>button</button>
       </>
     )
@@ -35,7 +37,12 @@ it('does not show async stale result', async () => {
     createEffect(() => {
       committed.push(delayedCount()!)
     })
-    return <div>delayedCount: {delayedCount()}</div>
+    return (
+      <div>
+        delayedCount:
+        {delayedCount()}
+      </div>
+    )
   }
 
   const { getByText, findByText } = render(() => (
@@ -80,19 +87,32 @@ it('does not show async stale result on derived atom', async () => {
   const DisplayAsyncValue = () => {
     const [asyncValue] = useAtom(asyncAlwaysNullAtom)
 
-    return <div>async value: {JSON.stringify(asyncValue())}</div>
+    return (
+      <div>
+        async value:
+        {JSON.stringify(asyncValue())}
+      </div>
+    )
   }
 
   const DisplayDerivedValue = () => {
     const [derivedValue] = useAtom(derivedAtom)
-    return <div>derived value: {JSON.stringify(derivedValue())}</div>
+    return (
+      <div>
+        derived value:
+        {JSON.stringify(derivedValue())}
+      </div>
+    )
   }
 
   const Test = () => {
     const [count, setCount] = useAtom(countAtom)
     return (
       <div>
-        <div>count: {count()}</div>
+        <div>
+          count:
+          {count()}
+        </div>
         <Suspense fallback={<div>loading async value</div>}>
           <DisplayAsyncValue />
         </Suspense>
@@ -152,7 +172,10 @@ it('works with async get with extra deps', async () => {
     const [count, setCount] = useAtom(countAtom)
     return (
       <>
-        <div>count: {count()}</div>
+        <div>
+          count:
+          {count()}
+        </div>
         <button onClick={() => setCount(c => c + 1)}>button</button>
       </>
     )
@@ -160,7 +183,12 @@ it('works with async get with extra deps', async () => {
 
   const DelayedCounter = () => {
     const [delayedCount] = useAtom(asyncCountAtom)
-    return <div>delayedCount: {delayedCount()}</div>
+    return (
+      <div>
+        delayedCount:
+        {delayedCount()}
+      </div>
+    )
   }
 
   const { getByText, findByText } = render(() => (
@@ -230,7 +258,9 @@ it('uses multiple async atoms at once', async () => {
     return (
       <>
         <div>
-          {some()} {some2()}
+          {some()}
+          {' '}
+          {some2()}
         </div>
       </>
     )

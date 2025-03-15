@@ -1,6 +1,6 @@
 import type { Component, JSX } from 'solid-js'
-import { createContext, useContext } from 'solid-js'
 import { createStore, getDefaultStore } from 'jotai/vanilla'
+import { createContext, useContext } from 'solid-js'
 
 type Store = ReturnType<typeof createStore>
 

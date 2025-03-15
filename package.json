@@ -23,18 +23,18 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/index/index.cjs",
       "import": {
         "types": "./dist/index/index.d.ts",
         "default": "./dist/index/index.js"
-      }
+      },
+      "require": "./dist/index/index.cjs"
     },
     "./utils": {
-      "require": "./dist/utils/index.cjs",
       "import": {
         "types": "./dist/utils/index.d.ts",
         "default": "./dist/utils/index.js"
-      }
+      },
+      "require": "./dist/utils/index.cjs"
     }
   },
   "main": "./dist/index/index.cjs",
@@ -56,40 +56,30 @@
     "update-deps": "taze -w && pnpm i",
     "typecheck": "tsc --noEmit",
     "release": "pnpm build && changeset publish",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "peerDependencies": {
     "jotai": ">=2.1.0",
     "solid-js": ">=1.6.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.38.6",
-    "@changesets/cli": "^2.27.8",
-    "@solidjs/testing-library": "^0.7.0",
-    "esbuild": "^0.17.18",
-    "esbuild-plugin-solid": "^0.5.0",
-    "eslint": "^8.40.0",
-    "eslint-plugin-solid": "^0.12.1",
-    "jotai": "^2.1.0",
+    "@antfu/eslint-config": "^4.10.1",
+    "@changesets/cli": "^2.28.1",
+    "@solidjs/testing-library": "^0.8.10",
+    "esbuild": "^0.25.1",
+    "esbuild-plugin-solid": "^0.6.0",
+    "eslint": "9.22.0",
+    "eslint-plugin-solid": "0.14.5",
+    "jotai": "^2.12.2",
     "jsdom": "^22.0.0",
-    "solid-js": "^1.7.5",
+    "solid-js": "^1.9.5",
     "solid-spring": "^0.0.7",
-    "taze": "^0.10.1",
-    "tsup": "^6.7.0",
-    "tsup-preset-solid": "^0.1.8",
+    "tsup": "^8.4.0",
+    "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.0.4",
-    "vite": "^4.3.5",
-    "vite-plugin-solid": "^2.7.0",
-    "vitest": "^0.31.0"
-  },
-  "eslintConfig": {
-    "plugins": [
-      "solid"
-    ],
-    "extends": [
-      "@antfu/eslint-config-ts",
-      "plugin:solid/typescript"
-    ]
+    "vite": "^6.2.2",
+    "vite-plugin-solid": "^2.11.6",
+    "vitest": "3.0.8"
   }
 }

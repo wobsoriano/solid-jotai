@@ -1,6 +1,6 @@
 import { Show, Suspense } from 'solid-js'
 import { animated as a, createSpring } from 'solid-spring'
-import { Provider, atom, useAtom } from '../src'
+import { atom, Provider, useAtom } from '../src'
 
 const postId = atom(9001)
 const postData = atom(async (get) => {

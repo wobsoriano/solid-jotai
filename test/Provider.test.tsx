@@ -1,6 +1,6 @@
 import { render, waitFor } from '@solidjs/testing-library'
 import { it } from 'vitest'
-import { Provider, atom, createStore, useAtom } from '../src'
+import { atom, createStore, Provider, useAtom } from '../src'
 
 it('uses initial values from provider', async () => {
   const countAtom = atom(1)
@@ -12,8 +12,14 @@ it('uses initial values from provider', async () => {
 
     return (
       <>
-        <p>count: {count()}</p>
-        <p>pet: {pet()}</p>
+        <p>
+          count:
+          {count()}
+        </p>
+        <p>
+          pet:
+          {pet()}
+        </p>
       </>
     )
   }
@@ -44,8 +50,14 @@ it('only uses initial value from provider for specific atom', async () => {
 
     return (
       <>
-        <p>count: {count()}</p>
-        <p>pet: {pet()}</p>
+        <p>
+          count:
+          {count()}
+        </p>
+        <p>
+          pet:
+          {pet()}
+        </p>
       </>
     )
   }

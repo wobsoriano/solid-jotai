@@ -1,7 +1,7 @@
+import { fireEvent, render, waitFor } from '@solidjs/testing-library'
+import { createEffect, createSignal } from 'solid-js'
 // https://github.com/pmndrs/jotai/blob/main/tests/react/utils/useAtomCallback.test.tsx
 import { it } from 'vitest'
-import { createEffect, createSignal } from 'solid-js'
-import { fireEvent, render, waitFor } from '@solidjs/testing-library'
 import { atom, useAtom } from '../src'
 import { useAtomCallback } from '../src/utils'
 
@@ -12,7 +12,10 @@ it('useAtomCallback with get', async () => {
     const [count, setCount] = useAtom(countAtom)
     return (
       <>
-        <div>atom count: {count()}</div>
+        <div>
+          atom count:
+          {count()}
+        </div>
         <button onClick={() => setCount(c => c + 1)}>dispatch</button>
       </>
     )
@@ -37,7 +40,10 @@ it('useAtomCallback with get', async () => {
     })
     return (
       <>
-        <div>state count: {count()}</div>
+        <div>
+          state count:
+          {count()}
+        </div>
       </>
     )
   }
@@ -68,7 +74,10 @@ it('useAtomCallback with set and update', async () => {
     const [count, setCount] = useAtom(countAtom)
     return (
       <>
-        <div>count: {count()}</div>
+        <div>
+          count:
+          {count()}
+        </div>
         <button onClick={() => setCount(c => c + 1)}>dispatch</button>
       </>
     )
@@ -93,7 +102,10 @@ it('useAtomCallback with set and update', async () => {
     })
     return (
       <>
-        <div>changeable count: {changeableCount()}</div>
+        <div>
+          changeable count:
+          {changeableCount()}
+        </div>
       </>
     )
   }
@@ -131,7 +143,10 @@ it('useAtomCallback with set and update and arg', async () => {
 
     return (
       <div>
-        <p>count: {count()}</p>
+        <p>
+          count:
+          {count()}
+        </p>
         <button onClick={() => setCount(42)}>dispatch</button>
       </div>
     )
@@ -159,7 +174,10 @@ it('useAtomCallback with sync atom (#1100)', async () => {
     })
     return (
       <>
-        <div>atom count: {count()}</div>
+        <div>
+          atom count:
+          {count()}
+        </div>
         <button onClick={() => setCount(c => c + 1)}>dispatch</button>
       </>
     )

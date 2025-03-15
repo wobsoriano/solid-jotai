@@ -1,8 +1,8 @@
 import type { Atom, ExtractAtomValue } from 'jotai/vanilla'
+import type { AwaitedAccessorOrResource } from './useAtom'
 import { createResource, onCleanup } from 'solid-js'
 import { createDeepSignal } from './createDeepSignal'
 import { useStore } from './Provider'
-import type { AwaitedAccessorOrResource } from './useAtom'
 
 function isPromiseLike(x: unknown): x is PromiseLike<unknown> {
   return typeof (x as any)?.then === 'function'
